@@ -16,6 +16,26 @@ build_property.GenerateRazorMetadataSourceChecksumAttributes =
 build_property.MSBuildProjectDirectory = C:\FacultateRelated\real-estate-dotnet\ReastEstateWebApp
 build_property._RazorSourceGeneratorDebug = 
 
+[C:/FacultateRelated/real-estate-dotnet/ReastEstateWebApp/Pages/Agents/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWdlbnRzXENyZWF0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/FacultateRelated/real-estate-dotnet/ReastEstateWebApp/Pages/Agents/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWdlbnRzXERlbGV0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/FacultateRelated/real-estate-dotnet/ReastEstateWebApp/Pages/Agents/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWdlbnRzXERldGFpbHMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/FacultateRelated/real-estate-dotnet/ReastEstateWebApp/Pages/Agents/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWdlbnRzXEVkaXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/FacultateRelated/real-estate-dotnet/ReastEstateWebApp/Pages/Agents/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWdlbnRzXEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/FacultateRelated/real-estate-dotnet/ReastEstateWebApp/Pages/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRXJyb3IuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
@@ -26,6 +46,26 @@ build_metadata.AdditionalFiles.CssScope =
 
 [C:/FacultateRelated/real-estate-dotnet/ReastEstateWebApp/Pages/Privacy.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUHJpdmFjeS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/FacultateRelated/real-estate-dotnet/ReastEstateWebApp/Pages/Properties/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUHJvcGVydGllc1xDcmVhdGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/FacultateRelated/real-estate-dotnet/ReastEstateWebApp/Pages/Properties/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUHJvcGVydGllc1xEZWxldGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/FacultateRelated/real-estate-dotnet/ReastEstateWebApp/Pages/Properties/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUHJvcGVydGllc1xEZXRhaWxzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/FacultateRelated/real-estate-dotnet/ReastEstateWebApp/Pages/Properties/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUHJvcGVydGllc1xFZGl0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/FacultateRelated/real-estate-dotnet/ReastEstateWebApp/Pages/Properties/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUHJvcGVydGllc1xJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/FacultateRelated/real-estate-dotnet/ReastEstateWebApp/Pages/Shared/_ValidationScriptsPartial.cshtml]
