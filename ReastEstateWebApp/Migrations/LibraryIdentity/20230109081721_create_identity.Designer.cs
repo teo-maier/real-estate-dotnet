@@ -12,7 +12,7 @@ using ReastEstateWebApp.Data;
 namespace ReastEstateWebApp.Migrations.LibraryIdentity
 {
     [DbContext(typeof(LibraryIdentityContext))]
-    [Migration("20230107231434_create_identity")]
+    [Migration("20230109081721_create_identity")]
     partial class createidentity
     {
         /// <inheritdoc />
