@@ -322,3 +322,5 @@ C:\FacultateRelated\real-estate-dotnet\ReastEstateWebApp\bin\Debug\net6.0\Micros
 C:\FacultateRelated\real-estate-dotnet\ReastEstateWebApp\bin\Debug\net6.0\Microsoft.Extensions.Identity.Core.dll
 C:\FacultateRelated\real-estate-dotnet\ReastEstateWebApp\bin\Debug\net6.0\Microsoft.Extensions.Identity.Stores.dll
 C:\FacultateRelated\real-estate-dotnet\ReastEstateWebApp\obj\Debug\net6.0\ReastEstateWebApp.MvcApplicationPartsAssemblyInfo.cs
+C:\FacultateRelated\real-estate-dotnet\ReastEstateWebApp\obj\Debug\net6.0\scopedcss\Pages\Properties\Index.cshtml.rz.scp.css
+C:\FacultateRelated\real-estate-dotnet\ReastEstateWebApp\bin\Debug\net6.0\Westwind.AspNetCore.LiveReload.dll

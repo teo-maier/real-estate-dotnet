@@ -10,7 +10,7 @@ public class Agent
         ErrorMessage = "Numele proprietatii trebuie sa inceapa cu majuscula " +
                        "(ex. Ana sau Ana Maria sau AnaMaria")]
     [StringLength(50, MinimumLength = 3)]
-    public string? Name { get; set; }
+    public string Name { get; set; }
 
     [RegularExpression(@"^\(?([0][0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{3})$",
         ErrorMessage = "Telefonul  trebuie sa fie de forma '0722-123-123' " +
@@ -19,4 +19,6 @@ public class Agent
 
     public string? Email { get; set; }
     public string? Address { get; set; }
+    
+    public ICollection<Property>? Property { get; set; }
 }

@@ -19,8 +19,9 @@ namespace ReastEstateWebApp.Pages.Properties
             _context = context;
         }
 
-        [BindProperty]
-      public Property Property { get; set; } = default!;
+        [BindProperty] public Property Property { get; set; } = default!;
+        public Agent Agent { get; set; }
+
 
         public async Task<IActionResult> OnGetAsync(int? id)
         {
@@ -35,10 +36,12 @@ namespace ReastEstateWebApp.Pages.Properties
             {
                 return NotFound();
             }
-            else 
+            else
             {
+                // Agent = _context.Agent.Find(property.AgentId);AgentId
                 Property = property;
             }
+
             return Page();
         }
 
@@ -48,6 +51,7 @@ namespace ReastEstateWebApp.Pages.Properties
             {
                 return NotFound();
             }
+
             var property = await _context.Property.FindAsync(id);
 
             if (property != null)

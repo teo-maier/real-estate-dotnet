@@ -16,6 +16,6 @@ namespace ReastEstateWebApp.Data
 
         public DbSet<ReastEstateWebApp.Models.Property> Property { get; set; } = default!;
 
-        public DbSet<ReastEstateWebApp.Models.Agent>? Agent { get; set; }
+        public DbSet<ReastEstateWebApp.Models.Agent> Agent { get; set; }
     }
 }

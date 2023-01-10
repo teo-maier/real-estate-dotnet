@@ -14,7 +14,8 @@
           "Microsoft.EntityFrameworkCore.SqlServer": "7.0.1",
           "Microsoft.EntityFrameworkCore.Sqlite": "6.0.12",
           "Microsoft.EntityFrameworkCore.Tools": "6.0.12",
-          "Microsoft.VisualStudio.Web.CodeGeneration.Design": "6.0.11"
+          "Microsoft.VisualStudio.Web.CodeGeneration.Design": "6.0.11",
+          "Westwind.AspNetCore.LiveReload": "0.4.0"
         },
         "runtime": {
           "ReastEstateWebApp.dll": {}
@@ -2684,6 +2685,14 @@
           "System.Threading": "4.3.0",
           "System.Xml.ReaderWriter": "4.3.0"
         }
+      },
+      "Westwind.AspNetCore.LiveReload/0.4.0": {
+        "runtime": {
+          "lib/net6.0/Westwind.AspNetCore.LiveReload.dll": {
+            "assemblyVersion": "0.4.0.0",
+            "fileVersion": "0.4.0.0"
+          }
+        }
       }
     }
   },
@@ -4071,6 +4080,13 @@
       "sha512": "sha512-5zJ0XDxAIg8iy+t4aMnQAu0MqVbqyvfoUVl1yDV61xdo3Vth45oA2FoY4pPkxYAH5f8ixpmTqXeEIya95x0aCQ==",
       "path": "system.xml.xdocument/4.3.0",
       "hashPath": "system.xml.xdocument.4.3.0.nupkg.sha512"
+    },
+    "Westwind.AspNetCore.LiveReload/0.4.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-aIvGrOlbV+bSpSKNxYUGIY2nN+X+pm4JYGDPdmdqAHwPmvwHL9S3dJFfUV7GK6ZW+vfzgo8MBSmCIk+VVwRY0Q==",
+      "path": "westwind.aspnetcore.livereload/0.4.0",
+      "hashPath": "westwind.aspnetcore.livereload.0.4.0.nupkg.sha512"
     }
   }
 }

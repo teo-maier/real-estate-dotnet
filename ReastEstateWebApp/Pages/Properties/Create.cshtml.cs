@@ -21,25 +21,46 @@ namespace ReastEstateWebApp.Pages.Properties
 
         public IActionResult OnGet()
         {
+            if (_context.Agent == null)
+            {
+                throw new NotSupportedException("no agents");
+            }
+            var agentList = _context.Agent.Select(x => new
+            {
+                x.Id,
+                Name = x.Name
+            });
+            ViewData["AgentId"] = new SelectList(agentList, "Id", "Name");
             return Page();
         }
 
-        [BindProperty]
-        public Property Property { get; set; } = default!;
-        
+        [BindProperty] public Property Property { get; set; } = default!;
 
-        // To protect from overposting attacks, see https://aka.ms/RazorPagesCRUD
+
         public async Task<IActionResult> OnPostAsync()
         {
-          if (!ModelState.IsValid || _context.Property == null || Property == null)
+            var newProperty = new Property();
+            if (!ModelState.IsValid || _context.Property == null || Property == null)
             {
                 return Page();
             }
 
-            _context.Property.Add(Property);
-            await _context.SaveChangesAsync();
+            if (await TryUpdateModelAsync<Property>(
+                    newProperty,
+                    "Property",
+                    i => i.Name,
+                    i => i.AgentId,
+                    i => i.Price,
+                    i => i.PropertyStatus,
+                    i => i.Description
+                ))
+            {
+                _context.Property.Add(newProperty);
+                await _context.SaveChangesAsync();
+                return RedirectToPage("./Index");
+            }
 
-            return RedirectToPage("./Index");
+            return Page();
         }
     }
 }

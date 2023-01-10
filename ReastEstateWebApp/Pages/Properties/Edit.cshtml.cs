@@ -20,8 +20,7 @@ namespace ReastEstateWebApp.Pages.Properties
             _context = context;
         }
 
-        [BindProperty]
-        public Property Property { get; set; } = default!;
+        [BindProperty] public Property Property { get; set; } = default!;
 
         public async Task<IActionResult> OnGetAsync(int? id)
         {
@@ -30,19 +29,39 @@ namespace ReastEstateWebApp.Pages.Properties
                 return NotFound();
             }
 
-            var property =  await _context.Property.FirstOrDefaultAsync(m => m.Id == id);
+            var property = await _context.Property.FirstOrDefaultAsync(m => m.Id == id);
             if (property == null)
             {
                 return NotFound();
             }
+
+            var agentList = _context.Agent.Select(x => new
+            {
+                x.Id,
+                Name = x.Name
+            });
+            ViewData["Id"] = new SelectList(agentList, "Id", "Name");
+            ViewData["AgentId"] = new SelectList(_context.Agent, "Id", "Name");
             Property = property;
             return Page();
         }
 
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see https://aka.ms/RazorPagesCRUD.
-        public async Task<IActionResult> OnPostAsync()
+        public async Task<IActionResult> OnPostAsync(int? id)
         {
+            if (id == null)
+            {
+                return NotFound();
+            }
+
+            var propertyToUpdate = await _context.Property
+                .AsNoTracking()
+                .FirstOrDefaultAsync(p => p.Id == id);
+
+            if (propertyToUpdate == null)
+            {
+                return NotFound();
+            }
+
             if (!ModelState.IsValid)
             {
                 return Page();
@@ -50,28 +69,22 @@ namespace ReastEstateWebApp.Pages.Properties
 
             _context.Attach(Property).State = EntityState.Modified;
 
-            try
+            if (await TryUpdateModelAsync<Property>(
+                    propertyToUpdate,
+                    "Property",
+                    i => i.Name, i => i.Description,
+                    i => i.Price, i => i.PropertyStatus, i => i.Agent))
             {
                 await _context.SaveChangesAsync();
-            }
-            catch (DbUpdateConcurrencyException)
-            {
-                if (!PropertyExists(Property.Id))
-                {
-                    return NotFound();
-                }
-                else
-                {
-                    throw;
-                }
+                return RedirectToPage("./Index");
             }
 
-            return RedirectToPage("./Index");
+            return Page();
         }
 
         private bool PropertyExists(int id)
         {
-          return (_context.Property?.Any(e => e.Id == id)).GetValueOrDefault();
+            return (_context.Property?.Any(e => e.Id == id)).GetValueOrDefault();
         }
     }
 }

@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "O/6sBKGID89OObPhlK9Ogy4YEGPIO+y9rqCbkZNf+fSwLHW8/XyRhoqVPvByKsbgL9YxNdd2px5Hot2/Y0jDzQ==",
+  "dgSpecHash": "izI9zdUjxsZDl4pu8clMsVh3KAS4UvoSBrzAzJcZ4f7nKMofFbKJsFmE8UOpDUQ2FUuHm1jJLxb/k6nBDEBsVQ==",
   "success": true,
   "projectFilePath": "C:\\FacultateRelated\\real-estate-dotnet\\ReastEstateWebApp\\ReastEstateWebApp.csproj",
   "expectedPackageFiles": [
@@ -200,7 +200,8 @@
     "C:\\Users\\Teodora Maier\\.nuget\\packages\\system.threading.timer\\4.3.0\\system.threading.timer.4.3.0.nupkg.sha512",
     "C:\\Users\\Teodora Maier\\.nuget\\packages\\system.windows.extensions\\6.0.0\\system.windows.extensions.6.0.0.nupkg.sha512",
     "C:\\Users\\Teodora Maier\\.nuget\\packages\\system.xml.readerwriter\\4.3.0\\system.xml.readerwriter.4.3.0.nupkg.sha512",
-    "C:\\Users\\Teodora Maier\\.nuget\\packages\\system.xml.xdocument\\4.3.0\\system.xml.xdocument.4.3.0.nupkg.sha512"
+    "C:\\Users\\Teodora Maier\\.nuget\\packages\\system.xml.xdocument\\4.3.0\\system.xml.xdocument.4.3.0.nupkg.sha512",
+    "C:\\Users\\Teodora Maier\\.nuget\\packages\\westwind.aspnetcore.livereload\\0.4.0\\westwind.aspnetcore.livereload.0.4.0.nupkg.sha512"
   ],
   "logs": []
 }

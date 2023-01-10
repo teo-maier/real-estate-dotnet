@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "gBOcRNsdzRQtzj5qdcM/3UNV+LE/8mVUTrKqACd9Xa4=",
+  "Hash": "7B52M6/WlxQGXdo/i8CQazI3RXMWV+OAue3jTv/RKoQ=",
   "Source": "ReastEstateWebApp",
   "BasePath": "_content/ReastEstateWebApp",
   "Mode": "Default",
@@ -49,6 +49,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "C:\\FacultateRelated\\real-estate-dotnet\\ReastEstateWebApp\\obj\\Debug\\net6.0\\scopedcss\\projectbundle\\ReastEstateWebApp.bundle.scp.css"
+    },
+    {
+      "Identity": "C:\\FacultateRelated\\real-estate-dotnet\\ReastEstateWebApp\\wwwroot\\css\\Property\\index.css",
+      "SourceId": "ReastEstateWebApp",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\FacultateRelated\\real-estate-dotnet\\ReastEstateWebApp\\wwwroot\\",
+      "BasePath": "_content/ReastEstateWebApp",
+      "RelativePath": "css/Property/index.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\css\\Property\\index.css"
     },
     {
       "Identity": "C:\\FacultateRelated\\real-estate-dotnet\\ReastEstateWebApp\\wwwroot\\css\\site.css",
