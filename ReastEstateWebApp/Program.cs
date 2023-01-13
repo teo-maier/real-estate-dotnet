@@ -6,13 +6,33 @@ using Microsoft.AspNetCore.Identity;
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
-builder.Services.AddRazorPages();
+builder.Services.AddRazorPages(options =>
+{
+    // options.Conventions.AuthorizeFolder("/Properties", "AdminPolicy");
+    options.Conventions.AllowAnonymousToPage("/Properties/Index");
+    options.Conventions.AllowAnonymousToPage("/UserIndex");
+    options.Conventions.AllowAnonymousToPage("/Properties/Details");
+    options.Conventions.AuthorizeFolder("/Agents",
+        "AdminPolicy");
+    options.Conventions.AuthorizeFolder("/Clients",
+        "AdminPolicy");
+    options.Conventions.AuthorizeFolder("/Sales",
+        "AdminPolicy");
+});
+
+builder.Services.AddAuthorization(options =>
+{
+    options.AddPolicy("AdminPolicy", policy =>
+        policy.RequireRole("Admin"));
+});
+
 builder.Services.AddDbContext<ReastEstateWebAppContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("ReastEstateWebAppContext") ??
                          throw new InvalidOperationException(
                              "Connection string 'ReastEstateWebAppContext' not found.")));
 
 builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
+    .AddRoles<IdentityRole>()
     .AddEntityFrameworkStores<LibraryIdentityContext>();
 
 builder.Services.AddDbContext<LibraryIdentityContext>(options =>

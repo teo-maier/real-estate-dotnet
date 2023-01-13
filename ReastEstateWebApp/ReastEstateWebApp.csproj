@@ -25,6 +25,8 @@
 
   <ItemGroup>
     <Folder Include="Pages\Agents" />
+    <Folder Include="Pages\Clients" />
+    <Folder Include="Pages\Sales" />
   </ItemGroup>
 
   <ItemGroup>

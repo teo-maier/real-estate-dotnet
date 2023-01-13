@@ -111,6 +111,15 @@ namespace ReastEstateWebApp.Areas.Identity.Pages.Account
             {
                 // This doesn't count login failures towards account lockout
                 // To enable password failures to trigger account lockout, set lockoutOnFailure: true
+                foreach (var user in _signInManager.UserManager.Users)
+                {
+                    if (user.Email == Input.Email)
+                    {
+                        Input.Email = user.UserName;
+                    }
+                }
+
+
                 var result = await _signInManager.PasswordSignInAsync(Input.Email, Input.Password, Input.RememberMe, lockoutOnFailure: false);
                 if (result.Succeeded)
                 {

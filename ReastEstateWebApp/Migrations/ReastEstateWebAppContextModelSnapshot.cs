@@ -48,7 +48,84 @@ namespace ReastEstateWebApp.Migrations
                     b.ToTable("Agent");
                 });
 
+            modelBuilder.Entity("ReastEstateWebApp.Models.Client", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("Name")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("PhoneNumber")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Client");
+                });
+
             modelBuilder.Entity("ReastEstateWebApp.Models.Property", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<int>("AgentId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Description")
+                        .IsRequired()
+                        .HasMaxLength(200)
+                        .HasColumnType("nvarchar(200)");
+
+                    b.Property<string>("ImageData")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
+
+                    b.Property<float>("Price")
+                        .HasColumnType("real");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("AgentId");
+
+                    b.ToTable("Property");
+                });
+
+            modelBuilder.Entity("ReastEstateWebApp.Models.PropertyStatus", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<int>("PropertyId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("PropertyType")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("PropertyId")
+                        .IsUnique();
+
+                    b.ToTable("PropertyStatus");
+                });
+
+            modelBuilder.Entity("ReastEstateWebApp.Models.Sale", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -59,35 +136,78 @@ namespace ReastEstateWebApp.Migrations
                     b.Property<int?>("AgentId")
                         .HasColumnType("int");
 
-                    b.Property<string>("Description")
-                        .HasMaxLength(200)
-                        .HasColumnType("nvarchar(200)");
+                    b.Property<int?>("ClientId")
+                        .HasColumnType("int");
 
-                    b.Property<string>("Name")
-                        .HasMaxLength(50)
-                        .HasColumnType("nvarchar(50)");
-
-                    b.Property<float>("Price")
-                        .HasColumnType("real");
-
-                    b.Property<string>("PropertyStatus")
-                        .HasMaxLength(20)
-                        .HasColumnType("nvarchar(20)");
+                    b.Property<int?>("PropertyId")
+                        .HasColumnType("int");
 
                     b.HasKey("Id");
 
                     b.HasIndex("AgentId");
 
-                    b.ToTable("Property");
+                    b.HasIndex("ClientId");
+
+                    b.HasIndex("PropertyId")
+                        .IsUnique()
+                        .HasFilter("[PropertyId] IS NOT NULL");
+
+                    b.ToTable("Sale");
                 });
 
             modelBuilder.Entity("ReastEstateWebApp.Models.Property", b =>
                 {
                     b.HasOne("ReastEstateWebApp.Models.Agent", "Agent")
+                        .WithMany("Property")
+                        .HasForeignKey("AgentId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Agent");
+                });
+
+            modelBuilder.Entity("ReastEstateWebApp.Models.PropertyStatus", b =>
+                {
+                    b.HasOne("ReastEstateWebApp.Models.Property", "Property")
+                        .WithOne("PropertyStatus")
+                        .HasForeignKey("ReastEstateWebApp.Models.PropertyStatus", "PropertyId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Property");
+                });
+
+            modelBuilder.Entity("ReastEstateWebApp.Models.Sale", b =>
+                {
+                    b.HasOne("ReastEstateWebApp.Models.Agent", "Agent")
                         .WithMany()
                         .HasForeignKey("AgentId");
 
+                    b.HasOne("ReastEstateWebApp.Models.Client", "Client")
+                        .WithMany()
+                        .HasForeignKey("ClientId");
+
+                    b.HasOne("ReastEstateWebApp.Models.Property", "Property")
+                        .WithOne("Sale")
+                        .HasForeignKey("ReastEstateWebApp.Models.Sale", "PropertyId");
+
                     b.Navigation("Agent");
+
+                    b.Navigation("Client");
+
+                    b.Navigation("Property");
+                });
+
+            modelBuilder.Entity("ReastEstateWebApp.Models.Agent", b =>
+                {
+                    b.Navigation("Property");
+                });
+
+            modelBuilder.Entity("ReastEstateWebApp.Models.Property", b =>
+                {
+                    b.Navigation("PropertyStatus");
+
+                    b.Navigation("Sale");
                 });
 #pragma warning restore 612, 618
         }

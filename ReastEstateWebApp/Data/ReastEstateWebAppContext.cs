@@ -9,7 +9,7 @@ namespace ReastEstateWebApp.Data
 {
     public class ReastEstateWebAppContext : DbContext
     {
-        public ReastEstateWebAppContext (DbContextOptions<ReastEstateWebAppContext> options)
+        public ReastEstateWebAppContext(DbContextOptions<ReastEstateWebAppContext> options)
             : base(options)
         {
         }
@@ -17,5 +17,9 @@ namespace ReastEstateWebApp.Data
         public DbSet<ReastEstateWebApp.Models.Property> Property { get; set; } = default!;
 
         public DbSet<ReastEstateWebApp.Models.Agent> Agent { get; set; }
+        public DbSet<ReastEstateWebApp.Models.PropertyStatus> PropertyStatus { get; set; }
+        public DbSet<ReastEstateWebApp.Models.Client> Client { get; set; }
+        public DbSet<ReastEstateWebApp.Models.Sale> Sale { get; set; }
+
     }
 }

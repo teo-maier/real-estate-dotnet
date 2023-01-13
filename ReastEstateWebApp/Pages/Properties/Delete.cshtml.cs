@@ -20,6 +20,7 @@ namespace ReastEstateWebApp.Pages.Properties
         }
 
         [BindProperty] public Property Property { get; set; } = default!;
+        public PropertyStatus PropertyStatus { get; set; } = default!;
         public Agent Agent { get; set; }
 
 

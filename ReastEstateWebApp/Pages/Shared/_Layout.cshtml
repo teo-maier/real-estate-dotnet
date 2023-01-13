@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="~/ReastEstateWebApp.styles.css" asp-append-version="true"/>
 </head>
 <body>
+@* different layout should be displayed for user  *@
 <header>
     <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
         <div class="container">
@@ -28,6 +29,12 @@
                     </li>
                     <li class="nav-item">
                         <a class="nav-link text-dark" asp-area="" asp-page="/Agents/Index">Agents</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-dark" asp-area="" asp-page="/Sales/Index">Sales</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-dark" asp-area="" asp-page="/Clients/Index">Clients</a>
                     </li>
                     @* <li class="nav-item"> *@
                     @*     <a class="nav-link text-dark" asp-area="" asp-page="/Privacy">Privacy</a> *@

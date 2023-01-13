@@ -21,6 +21,7 @@ namespace ReastEstateWebApp.Pages.Properties
         }
 
         [BindProperty] public Property Property { get; set; } = default!;
+        [BindProperty] public PropertyStatus PropertyStatus { get; set; } = default!;
 
         public async Task<IActionResult> OnGetAsync(int? id)
         {
@@ -40,8 +41,18 @@ namespace ReastEstateWebApp.Pages.Properties
                 x.Id,
                 Name = x.Name
             });
+
+            List<string> propertyTypeStatusList = new List<string>();
+            foreach (var value in Enum.GetValues(typeof(PropertyTypeStatus)))
+            {
+                var propertyStatus = ((PropertyTypeStatus)value).ToString();
+                propertyTypeStatusList.Add(propertyStatus);
+            }
+
             ViewData["Id"] = new SelectList(agentList, "Id", "Name");
             ViewData["AgentId"] = new SelectList(_context.Agent, "Id", "Name");
+            ViewData["PropertyStatus"] = new SelectList(propertyTypeStatusList);
+
             Property = property;
             return Page();
         }
@@ -57,7 +68,11 @@ namespace ReastEstateWebApp.Pages.Properties
                 .AsNoTracking()
                 .FirstOrDefaultAsync(p => p.Id == id);
 
-            if (propertyToUpdate == null)
+            var propertyStatusTypeToUpdate = await _context.PropertyStatus
+                .AsNoTracking()
+                .FirstOrDefaultAsync(p => p.PropertyId == id);
+
+            if (propertyToUpdate == null || propertyStatusTypeToUpdate == null)
             {
                 return NotFound();
             }
@@ -73,8 +88,16 @@ namespace ReastEstateWebApp.Pages.Properties
                     propertyToUpdate,
                     "Property",
                     i => i.Name, i => i.Description,
-                    i => i.Price, i => i.PropertyStatus, i => i.Agent))
+                    i => i.Price, i => i.Agent))
             {
+                await _context.SaveChangesAsync();
+
+                await TryUpdateModelAsync<PropertyStatus>(
+                    propertyStatusTypeToUpdate,
+                    "PropertyStatus",
+                    i => i.PropertyType
+                );
+
                 await _context.SaveChangesAsync();
                 return RedirectToPage("./Index");
             }

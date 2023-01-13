@@ -31,9 +31,10 @@
                 <span asp-validation-for="Property.Price" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Property.PropertyStatus" class="control-label">Property status</label>
-                <input asp-for="Property.PropertyStatus" class="form-control"/>
-                <span asp-validation-for="Property.PropertyStatus" class="text-danger"></span>
+                <label asp-for="PropertyStatus.PropertyType" class="control-label">Property status</label>
+                <select asp-for="PropertyStatus.PropertyType" class="form-control" asp-items="ViewBag.PropertyStatus">
+                </select>
+                <span asp-validation-for="PropertyStatus.PropertyType" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="Property.AgentId" class="control-label">Agent's name</label>
