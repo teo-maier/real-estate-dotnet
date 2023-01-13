@@ -22,6 +22,7 @@ namespace ReastEstateWebApp.Pages.Properties
         [BindProperty] public Property Property { get; set; } = default!;
         public PropertyStatus PropertyStatus { get; set; } = default!;
         public Agent Agent { get; set; }
+        public Sale Sale { get; set; }
 
 
         public async Task<IActionResult> OnGetAsync(int? id)
@@ -32,6 +33,7 @@ namespace ReastEstateWebApp.Pages.Properties
             }
 
             var property = await _context.Property.FirstOrDefaultAsync(m => m.Id == id);
+
 
             if (property == null)
             {
@@ -54,10 +56,17 @@ namespace ReastEstateWebApp.Pages.Properties
             }
 
             var property = await _context.Property.FindAsync(id);
+            var sale = await _context.Sale.FirstOrDefaultAsync(s => s.PropertyId == id);
+
 
             if (property != null)
             {
                 Property = property;
+                if (sale != null)
+                {
+                    Sale = sale;
+                    _context.Sale.Remove(Sale);
+                }
                 _context.Property.Remove(Property);
                 await _context.SaveChangesAsync();
             }
